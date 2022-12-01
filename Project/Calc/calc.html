@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="./style2.css">
+    <script src="../../script.js" defer></script>
+
+    <title>Calc</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header ">
+
+            <div class="nav">
+
+                <div class="brand">
+                    <a href="../../index.html"><b>EMDIDI</b></a>
+                </div>
+
+                <div class="hamburger">
+                    <div class="nav-bar">
+
+                        <div class="nav-link"><a href="../../index.html#hero">Home</a></div>
+                        <div class="nav-link"><a href="../../index.html#about">About</a></div>
+                        <div class="nav-link"><a href="../../index.html#portfolio">Portfolio</a></div>
+                        <div class="nav-link"><a href="../../index.html#contact">Contact</a></div>
+
+                    </div>
+
+                    <div class="hamburger-content">
+                        <div class="bun">
+                            <div class="bun-top"></div>
+                            <div class="patty"></div>
+                            <div class="bun-bottom"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="main">
+            <div class="main-content">
+
+                <div class="calc">
+
+                    <div class="calc-display">
+                        <div class="calc-d-in">
+                            <p>in</p>
+                        </div>
+                        <div class="calc-d-out">
+                            <p>out</p>
+                        </div>
+                    </div>
+
+                    <div class="calc-menu">
+                        <div class="menu-digit">
+                            <div class="clear">
+                                <p onClick="clearDisplay()">C</p>
+                            </div>
+                            <div class="division">
+                                <p onclick="">/</p>
+                            </div>
+                            <div class="mult">
+                                <p onclick="">X</p>
+                            </div>
+                            <div class="del">
+                                <p onclick="">del</p>
+                            </div>
+                            <div class="seven">
+                                <p onclick="getDigits(this)">7</p>
+                            </div>
+                            <div class="eight">
+                                <p onclick="getDigits(this)">8</p>
+                            </div>
+                            <div class="nine">
+                                <p onclick="getDigits(this)">9</p>
+                            </div>
+                            <div class="sub">
+                                <p onclick="getDigits(this)">-</p>
+                            </div>
+                            <div class="four">
+                                <p onclick="getDigits(this)">4</p>
+                            </div>
+                            <div class="five">
+                                <p onclick="getDigits(this)">5</p>
+                            </div>
+                            <div class="six">
+                                <p onclick="getDigits(this)">6</p>
+                            </div>
+                            <div class="add">
+                                <p onclick="addValue(this)">+</p>
+                            </div>
+                            <div class="one">
+                                <p onclick="getDigits(this)">1</p>
+                            </div>
+                            <div class="two">
+                                <p onclick="getDigits(this)">2</p>
+                            </div>
+                            <div class="three">
+                                <p onclick="getDigits(this)">3</p>
+                            </div>
+                            <div class="equal">
+                                <p onclick="displayResult()">=</p>
+                            </div>
+                            <div class="pct">
+                                <p onclick="">%
+                            </div>
+                            <div class="zero">
+                                <p onclick="">0</p>
+                            </div>
+                            <div class="dot">
+                                <p onclick="">.</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="footer">
+                <p> <small>© All Rights Reserved by emdidi</small></p>
+            </div>
+        </div>
+        <script src="./script2.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+:root {
+    --calc-bg: #151516;
+    --dis-bg: #2b2b2c;
+    --calc-menu-bg: #6b6b6f;
+    --neum-bg: #818385;
+    --digit-co: rgb(255, 255, 255);
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    position: relative;
+}
+
+.main {
+    height: calc(100vh - 9em);
+    width: 100%;
+    border: 2px solid black;
+}
+
+.main-content {
+    /* border: 2px solid red; */
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calc {
+    border: 2px solid black;
+    border-radius: 2em;
+    height: 100%;
+    width: 100%;
+
+    display: grid;
+    grid-template-rows: 20% 80%;
+}
+
+.calc-display {
+    padding: 1em;
+    border-radius: 2em;
+    display: grid;
+    grid-template-rows: 40% 60%;
+    /* border: 2px solid black; */
+}
+
+.calc-d-in, 
+.calc-d-out {
+    padding-right: .5em;
+    overflow-x: auto ;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.calc-d-in {
+    font-size: 2em;
+}
+
+.calc-d-out {
+    font-size: 3em;
+}
+.menu-digit {
+    height: 100%;
+    width: 100%;
+    padding: 1em;
+
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+    border: 2px solid black;
+}
+
+.menu-digit div {
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    margin: .5em;
+    border-radius: 1em;
+    cursor: pointer;
+}
+
+.menu-digit p {
+    /* border: 2px solid black; */
+    text-align: center;
+    width: 100%;
+    font-size: 3em;
+    transition: all .3s ease;
+}
+
+.menu-digit div:hover {
+    transform: scale(1.1);
+    transition: all .3s ease;
+}
+
+@media (min-width: 576px) {}
+
+@media (min-width: 720px) {}
+
+@media (min-width: 1200px) {}
