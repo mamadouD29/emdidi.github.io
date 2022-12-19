@@ -21,5 +21,4 @@ function checkMediaQuery() {
 }
 
 window.addEventListener("resize", checkMediaQuery);
-
 hamburgerBtn.addEventListener("click", displayNav);

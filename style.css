@@ -1,7 +1,7 @@
 :root {
     --bg-co: #d7dbdf;
     --nav-co: #d7dbdf;
-    --actNav-bg: rgb(129, 131, 133, .5);
+    --actNav-bg: rgb(129, 131, 133, .8);
     --header-bg-co: #c3c9cf;
     --header-co: #000000;
     --h-c1: #f9e1ca;
@@ -11,7 +11,10 @@
     --about-bg: #d7dbdf;
     --aLink-co: #000000;
 
-
+    --skill-bg: rgb(154, 174, 187);
+    --sk-r-bg: rgb(0, 0, 0);
+    --sk-rate-bg: rgb(163, 157, 157);
+    ;
 }
 
 * {
@@ -312,6 +315,12 @@ body {
 
 }
 
+
+.portfolio-content a {
+    text-decoration: none;
+    color: var(--aLink-co);
+}
+
 .p-item {
     box-shadow: 0 0 1px black;
     margin: .2em;
@@ -355,13 +364,93 @@ body {
 
 }
 
+.s-header {
+    text-align: center;
+}
+
+.s-header h2 {
+    font-weight: bolder;
+}
+
+#skills {
+    background: var(--header-bg-co);
+    padding: 1em;
+}
+
+.comp-skills {
+    display: grid;
+}
+
+.sk-range {
+    width: 100%;
+    border: 1px solid black;
+    background: var(--skill-bg);
+}
+
+.skill-item h4 {
+    font-weight: bolder;
+}
+
+.sk-range div {
+    height: 2em;
+}
+
+.cpp,
+.html,
+.css,
+.js,
+.bs {
+
+    border-right: 2px solid black;
+    border-top-right-radius: 30px;
+    background: var(--sk-rate-bg);
+}
+
+.cpp {
+    width: 87%;
+}
+
+
+.html {
+    width: 90%;
+}
+
+.css {
+    width: 89%;
+}
+
+.js {
+    width: 87%;
+}
+
+.bs {
+    width: 75%;
+}
+
+.myResume p {
+    text-indent: 2em;
+    letter-spacing: normal;
+    font-size: larger;
+}
+
+.d-resume {
+    letter-spacing: 5px;
+    text-align: center;
+}
 
 #contact {
     width: 100%;
-    margin-top: 4em;
+    margin: 4em 0;
     padding: 1em;
     height: 40%;
+
 }
+
+.contact-header h2 {
+    text-align: center;
+    font-weight: bolder;
+}
+
 
 .contact-me {
     height: 100%;
@@ -419,7 +508,19 @@ body {
 
 
 /* calc section */
+.g-l-container {
+    padding-top: 8em;
+    height: 100%;
+    border: 2px solid black;
+}
 
+.game-list {
+    height: 100%;
+    border: 2px solid green;
+    padding-top: 0;
+}
+
+/* ---------------- games section */
 
 
 
@@ -450,6 +551,10 @@ body {
         margin: 0 auto;
     }
 
+    .comp-skills {
+        width: 80%;
+        margin: 0 auto;
+    }
 
 
 
@@ -482,10 +587,15 @@ body {
     .hero-content {
         border: 0;
     }
+
     .hero-content p {
         font-size: 3em;
     }
 
+    .comp-skills {
+        width: 60%;
+        margin: 0 auto;
+    }
 
 
 }
@@ -494,6 +604,7 @@ body {
     #hero {
         background-position: center;
     }
+
     .about-content {
         width: 60%;
     }
