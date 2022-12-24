@@ -175,14 +175,12 @@ summary {
     height: 100%;
     width: 100%;
     background: var(--g-front-bg);
-    transition: all .5s ease;
-    /* background: transparent; */
-    /* transform: rotateY(0deg); */
+    transition: all .2s ease;
 }
 
 .g-front.active {
     transform: rotateY(90deg);
-    transition: all .3s ease;
+    transition: all .2s ease;
 }
 
 .g-front h1 {
