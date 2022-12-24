@@ -401,6 +401,7 @@ function stopGame(e) {
     enumCard = 0;
     pseGBtn.innerHTML = "Pause";
     uScore.innerHTML = parseInt(uScore.innerHTML) - scr;
+    scr = 0;
 }
 
 
