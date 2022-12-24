@@ -402,6 +402,7 @@ function stopGame(e) {
     pseGBtn.innerHTML = "Pause";
     uScore.innerHTML = parseInt(uScore.innerHTML) - scr;
     scr = 0;
+
 }
 
 
