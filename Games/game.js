@@ -581,68 +581,60 @@ function flipCard(e) {
         return;
     }
 
-    setTimeout(function () {
-        e.parentNode.classList.add("active");
-    }, 300);
     checker++;
+    e.parentNode.classList.add("active");
 
-    setTimeout(function () {
-        if (checker == 1) {
-            prevCardId = e.parentNode.previousElementSibling;
-            // console.log("checker = 1 ");
+    if (checker == 1) {
+        prevCardId = e.parentNode.previousElementSibling;
+        // console.log("checker = 1 ");
+        return;
 
-            return;
-        } else {
-            // console.log("checker = 2 ");
-            curCardId = e.parentNode.previousElementSibling;
-            checker = 0;
-            // console.log(curCardId);
-        }
+    } else {
+        // console.log("checker = 2 ");
+        curCardId = e.parentNode.previousElementSibling;
+        checker = 0;
+        // console.log(curCardId);
+    }
 
-        let prev = parseInt(prevCardId.getAttribute("data-card-id"));
-        // console.log("prev : ", prev)
-        let curr = parseInt(curCardId.getAttribute("data-card-id"));
-        // console.log("curr:", curr)
+    let prev = parseInt(prevCardId.getAttribute("data-card-id"));
+    // console.log("prev : ", prev)
+    let curr = parseInt(curCardId.getAttribute("data-card-id"));
+    // console.log("curr:", curr)
 
-        if (prev != curr) {
-            // console.log("they dont much")
+    if (prev != curr) {
+        // console.log("they dont much")
+        setTimeout(() => {
+
+            prevCardId.nextElementSibling.classList.remove("active");
+            curCardId.nextElementSibling.classList.remove("active");
+        }, 200);
+        return;
+    }
+
+    // console.log("Yay the match !");
+    matchImages.push(curr);
+    scr += 10;
+    uScore.innerHTML = parseInt(uScore.innerHTML) + 10;
+    // if (matchImages.length == parseInt(uLevel.innerHTML)) {
+    if (matchImages.length == parseInt(lvel)) {
+
+        scr = 0;
+        uLevel.innerHTML = parseInt(uLevel.innerHTML) + 1;
+        saveScore();
+
+        setTimeout(() => {
+            // clearInterval(interval);
+            stopGame(e);
+            // alert("You won!!");
+            displayMsg("YOU WIN !!");
 
             setTimeout(() => {
-
-                prevCardId.nextElementSibling.classList.remove("active");
-
-                curCardId.nextElementSibling.classList.remove("active");
-            }, 200);
-            return;
-        }
-
-        // console.log("Yay the match !");
-        matchImages.push(curr);
-        scr += 10;
-        uScore.innerHTML = parseInt(uScore.innerHTML) + 10;
-        // if (matchImages.length == parseInt(uLevel.innerHTML)) {
-        if (matchImages.length == parseInt(lvel)) {
-
-            scr = 0;
-            uLevel.innerHTML = parseInt(uLevel.innerHTML) + 1;
-            saveScore();
-
-            setTimeout(() => {
-                // clearInterval(interval);
-                stopGame(e);
-                // alert("You won!!");
-                displayMsg("YOU WIN !!");
-
-                setTimeout(() => {
-                    startGame();
-                }, 1500);
-            }, 500);
+                startGame();
+            }, 1500);
+        }, 500);
 
 
-        }
-    }, 400);
-
-
+    }
 }
 
 
