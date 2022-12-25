@@ -122,6 +122,8 @@ summary {
 .g-info {
 
     position: relative;
+    /* padding-top: .5em; */
+    /* border: 2px solid ; */
 }
 
 .g-cmd {
@@ -141,7 +143,7 @@ summary {
     width: 100%;
     position: absolute;
     top: 0;
-    left: 150%;
+    left: 120%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -150,6 +152,8 @@ summary {
 }
 
 .g-content {
+    /* border: 2px solid black; */
+    padding: 1.5em .5em;
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
 
@@ -210,10 +214,10 @@ summary {
         margin: 0 auto;
     }
 
-    .g-content {
-        padding: 1em;
+    /* .g-content {
+        padding: 2em 1em;
 
-    }
+    } */
 
     #alertMe {
         left: 250%;

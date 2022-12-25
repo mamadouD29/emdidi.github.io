@@ -25,6 +25,8 @@ let gCont = document.getElementsByClassName("g-content")[0];
 
 let gBack = document.getElementsByClassName("g-back")[0];
 
+let audioBtn = document.getElementById("s-track");
+
 
 
 
@@ -211,7 +213,7 @@ function displayMsg(msg) {
     alertMe.style.left = "0%";
     setTimeout(() => {
         alertMe.removeAttribute("style");
-    }, 2000);
+    }, 1200);
 }
 
 // 
@@ -331,6 +333,8 @@ function startGame(e) {
         return;
     }
     callSetInterval();
+    audioBtn.setAttribute("play", "true");
+
     strGBtn.setAttribute("disabled", "");
     pseGBtn.removeAttribute("disabled");
     stpGBtn.removeAttribute("disabled");
@@ -358,6 +362,49 @@ function startGame(e) {
 }
 
 
+
+let newLevel;
+
+function startGames(event) {
+    if (!username.hasAttribute("disabled")) {
+        invFdb3 = document.getElementsByClassName("inv-fdb3")[0];
+        displayInvalidMsg(invFdb3, 2);
+        return;
+    }
+    // call interval
+    strGBtn.setAttribute("disabled", "");
+    pseGBtn.removeAttribute("disabled");
+    stpGBtn.removeAttribute("disabled");
+    ends = counter;
+    checker = 0;
+
+    callSetInterval();
+    // audioBtn.setAttribute("autoplay", "true");
+    // audioBtn.setAttribute("pause", "false");
+    
+
+    let cardSet = new Set(),
+        posSet = new Set(),
+        actualLvel = parseInt(uLevel.innerHTML);
+
+    // set the limit of the actual level at 16 
+    if (actualLvel <= 16) {
+        console.log("new level set to actual level");
+        newLevel = actualLvel;
+    } else {
+        newLevel = 16;
+        console.log("new level set to 16");
+    }
+
+    console.log("delete all cards")
+    deleteCards();
+
+    console.log("Create crads !!");
+    createCards(newLevel);
+
+    console.log("Generate cards !");
+    generateCards(cardSet, posSet, newLevel);
+}
 
 
 /*
@@ -402,6 +449,7 @@ function stopGame(e) {
     pseGBtn.innerHTML = "Pause";
     uScore.innerHTML = parseInt(uScore.innerHTML) - scr;
     scr = 0;
+    audioBtn.setAttribute("pause", "true");
 
 }
 
@@ -576,17 +624,21 @@ function flipCard(e) {
     if (matchImages.length == parseInt(lvel)) {
 
         scr = 0;
+        uLevel.innerHTML = parseInt(uLevel.innerHTML) + 1;
+        saveScore();
+
         setTimeout(() => {
             // clearInterval(interval);
             stopGame(e);
             // alert("You won!!");
             displayMsg("YOU WIN !!");
 
-
-
+            setTimeout(() => {
+                startGame();
+            }, 1500);
         }, 500);
-        uLevel.innerHTML = parseInt(uLevel.innerHTML) + 1;
-        saveScore();
+
+
     }
 }
 
