@@ -583,8 +583,8 @@ function flipCard(e) {
 
     setTimeout(function () {
         e.parentNode.classList.add("active");
-        checker++;
-    }, 200);
+    }, 300);
+    checker++;
 
     setTimeout(function () {
         if (checker == 1) {
@@ -612,7 +612,7 @@ function flipCard(e) {
                 prevCardId.nextElementSibling.classList.remove("active");
 
                 curCardId.nextElementSibling.classList.remove("active");
-            }, 500);
+            }, 200);
             return;
         }
 
