@@ -333,8 +333,6 @@ function startGame(e) {
         return;
     }
     callSetInterval();
-    audioBtn.setAttribute("play", "true");
-
     strGBtn.setAttribute("disabled", "");
     pseGBtn.removeAttribute("disabled");
     stpGBtn.removeAttribute("disabled");
@@ -381,7 +379,7 @@ function startGames(event) {
     callSetInterval();
     // audioBtn.setAttribute("autoplay", "true");
     // audioBtn.setAttribute("pause", "false");
-    
+
 
     let cardSet = new Set(),
         posSet = new Set(),
@@ -449,7 +447,6 @@ function stopGame(e) {
     pseGBtn.innerHTML = "Pause";
     uScore.innerHTML = parseInt(uScore.innerHTML) - scr;
     scr = 0;
-    audioBtn.setAttribute("pause", "true");
 
 }
 
@@ -584,62 +581,68 @@ function flipCard(e) {
         return;
     }
 
-    e.parentNode.classList.add("active");
-    checker++;
+    setTimeout(function () {
+        e.parentNode.classList.add("active");
+        checker++;
+    }, 200);
 
-    if (checker == 1) {
-        prevCardId = e.parentNode.previousElementSibling;
-        // console.log("checker = 1 ");
+    setTimeout(function () {
+        if (checker == 1) {
+            prevCardId = e.parentNode.previousElementSibling;
+            // console.log("checker = 1 ");
 
-        return;
-    } else {
-        // console.log("checker = 2 ");
-        curCardId = e.parentNode.previousElementSibling;
-        checker = 0;
-        // console.log(curCardId);
-    }
+            return;
+        } else {
+            // console.log("checker = 2 ");
+            curCardId = e.parentNode.previousElementSibling;
+            checker = 0;
+            // console.log(curCardId);
+        }
 
-    let prev = parseInt(prevCardId.getAttribute("data-card-id"));
-    // console.log("prev : ", prev)
-    let curr = parseInt(curCardId.getAttribute("data-card-id"));
-    // console.log("curr:", curr)
+        let prev = parseInt(prevCardId.getAttribute("data-card-id"));
+        // console.log("prev : ", prev)
+        let curr = parseInt(curCardId.getAttribute("data-card-id"));
+        // console.log("curr:", curr)
 
-    if (prev != curr) {
-        // console.log("they dont much")
-
-        setTimeout(() => {
-
-            prevCardId.nextElementSibling.classList.remove("active");
-
-            curCardId.nextElementSibling.classList.remove("active");
-        }, 500);
-        return;
-    }
-
-    // console.log("Yay the match !");
-    matchImages.push(curr);
-    scr += 10;
-    uScore.innerHTML = parseInt(uScore.innerHTML) + 10;
-    // if (matchImages.length == parseInt(uLevel.innerHTML)) {
-    if (matchImages.length == parseInt(lvel)) {
-
-        scr = 0;
-        uLevel.innerHTML = parseInt(uLevel.innerHTML) + 1;
-        saveScore();
-
-        setTimeout(() => {
-            // clearInterval(interval);
-            stopGame(e);
-            // alert("You won!!");
-            displayMsg("YOU WIN !!");
+        if (prev != curr) {
+            // console.log("they dont much")
 
             setTimeout(() => {
-                startGame();
-            }, 1500);
-        }, 500);
+
+                prevCardId.nextElementSibling.classList.remove("active");
+
+                curCardId.nextElementSibling.classList.remove("active");
+            }, 500);
+            return;
+        }
+
+        // console.log("Yay the match !");
+        matchImages.push(curr);
+        scr += 10;
+        uScore.innerHTML = parseInt(uScore.innerHTML) + 10;
+        // if (matchImages.length == parseInt(uLevel.innerHTML)) {
+        if (matchImages.length == parseInt(lvel)) {
+
+            scr = 0;
+            uLevel.innerHTML = parseInt(uLevel.innerHTML) + 1;
+            saveScore();
+
+            setTimeout(() => {
+                // clearInterval(interval);
+                stopGame(e);
+                // alert("You won!!");
+                displayMsg("YOU WIN !!");
+
+                setTimeout(() => {
+                    startGame();
+                }, 1500);
+            }, 500);
 
 
-    }
+        }
+    }, 400);
+
+
 }
 
 
