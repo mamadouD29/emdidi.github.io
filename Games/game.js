@@ -137,6 +137,7 @@ function loadUser(e) {
     if (userScoreBar["isGameOver"] == "true") {
         // console.log("restart me")
         strGBtn.innerHTML = "Restart";
+        scr = 0;
         return;
     }
     // console.log("start me");
@@ -257,7 +258,6 @@ function restartGame(isOver) {
     uScore.innerHTML = userScoreBar["uScore"];
     uTimer.innerHTML = userScoreBar["uTimer"];
 
-
     localStorage.setItem(getUser, JSON.stringify(userScoreBar));
 
     // console.log("Yeah i restarted");
@@ -270,6 +270,7 @@ function callSetInterval() {
 
 
     if (strGBtn.innerHTML == "Restart") {
+        scr = 0;
         strGBtn.innerHTML = "Start";
         restartGame("false");
     }
@@ -361,48 +362,48 @@ function startGame(e) {
 
 
 
-let newLevel;
+// let newLevel;
 
-function startGames(event) {
-    if (!username.hasAttribute("disabled")) {
-        invFdb3 = document.getElementsByClassName("inv-fdb3")[0];
-        displayInvalidMsg(invFdb3, 2);
-        return;
-    }
-    // call interval
-    strGBtn.setAttribute("disabled", "");
-    pseGBtn.removeAttribute("disabled");
-    stpGBtn.removeAttribute("disabled");
-    ends = counter;
-    checker = 0;
+// function startGames(event) {
+//     if (!username.hasAttribute("disabled")) {
+//         invFdb3 = document.getElementsByClassName("inv-fdb3")[0];
+//         displayInvalidMsg(invFdb3, 2);
+//         return;
+//     }
+//     // call interval
+//     strGBtn.setAttribute("disabled", "");
+//     pseGBtn.removeAttribute("disabled");
+//     stpGBtn.removeAttribute("disabled");
+//     ends = counter;
+//     checker = 0;
 
-    callSetInterval();
-    // audioBtn.setAttribute("autoplay", "true");
-    // audioBtn.setAttribute("pause", "false");
+//     callSetInterval();
+//     // audioBtn.setAttribute("autoplay", "true");
+//     // audioBtn.setAttribute("pause", "false");
 
 
-    let cardSet = new Set(),
-        posSet = new Set(),
-        actualLvel = parseInt(uLevel.innerHTML);
+//     let cardSet = new Set(),
+//         posSet = new Set(),
+//         actualLvel = parseInt(uLevel.innerHTML);
 
-    // set the limit of the actual level at 16 
-    if (actualLvel <= 16) {
-        console.log("new level set to actual level");
-        newLevel = actualLvel;
-    } else {
-        newLevel = 16;
-        console.log("new level set to 16");
-    }
+//     // set the limit of the actual level at 16 
+//     if (actualLvel <= 16) {
+//         console.log("new level set to actual level");
+//         newLevel = actualLvel;
+//     } else {
+//         newLevel = 16;
+//         console.log("new level set to 16");
+//     }
 
-    console.log("delete all cards")
-    deleteCards();
+//     console.log("delete all cards")
+//     deleteCards();
 
-    console.log("Create crads !!");
-    createCards(newLevel);
+//     console.log("Create crads !!");
+//     createCards(newLevel);
 
-    console.log("Generate cards !");
-    generateCards(cardSet, posSet, newLevel);
-}
+//     console.log("Generate cards !");
+//     generateCards(cardSet, posSet, newLevel);
+// }
 
 
 /*
@@ -446,7 +447,7 @@ function stopGame(e) {
     enumCard = 0;
     pseGBtn.innerHTML = "Pause";
     uScore.innerHTML = parseInt(uScore.innerHTML) - scr;
-    scr = 0;
+    scr = 0; // reset the score to 0 after level and restart
 
 }
 
@@ -540,7 +541,7 @@ function generateCards(card, pos, lvel) {
     let k = 0;
     // iterate and add the html code
     for (let i = 0; i < arrCard.length; i++) {
-        console.log(arrCard.length);
+        // console.log(arrCard.length);
         // console.log(`${arrPos[k]}`);
 
         // childre[arrPos[k++]] will get the cards
@@ -551,7 +552,7 @@ function generateCards(card, pos, lvel) {
         gCont.children[arrPos[k]].firstElementChild.setAttribute("data-card-id", `${arrCard[i]}`);
         gCont.children[arrPos[k++]].firstElementChild.firstElementChild.setAttribute("src", `./rma2/${arrCard[i]}.png`);
 
-        console.log(`${arrPos[k]}`);
+        // console.log(`${arrPos[k]}`);
         gCont.children[arrPos[k]].firstElementChild.setAttribute("data-card-id", `${arrCard[i]}`);
 
         gCont.children[arrPos[k++]].firstElementChild.firstElementChild.setAttribute("src", `./rma2/${arrCard[i]}.png`);
