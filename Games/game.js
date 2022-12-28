@@ -293,6 +293,7 @@ function callSetInterval() {
             uTimer.innerHTML = counter;
             // console.log("counter reset = ", timer);
             strGBtn.innerHTML = "Restart";
+            scr = 0;
 
             return;
         }
